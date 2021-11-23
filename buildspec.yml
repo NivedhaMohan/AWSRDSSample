@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo Entered install phase
+  build:
+     commands:
+       - echo Entered build phase
+       - chmod +x gradlew
+       - ./gradlew clean build
+  post_build:
+     commands:
+       - echo Entered post build
+artifacts:
+     files:
+       - build/libs/*.jar
+       - echo $CODEBUILD_SRC_DIR
+     discard-paths: yes
+       
+
